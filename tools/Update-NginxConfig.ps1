@@ -1,8 +1,3 @@
-param(
-    [Parameter(Mandatory=$true)]
-    [string]$subdomain
-)
-
 $nginxConf = "$env:NGINX_HOME\conf"
 $backupDir = "$nginxConf-backup"
 $vhostOutput = "$(Get-Location)\output"
@@ -11,7 +6,7 @@ $vhostDest = "$nginxConf\vhosts"
 Write-Host "Backing up current NGINX configuration..."
 Copy-Item -Path $nginxConf -Destination $backupDir -Recurse -Force
 
-Write-Host "Generating NGINX configuration for subdomain: $subdomain"
+Write-Host "Generating NGINX configuration:"
 Copy-Item -Path $vhostOutput\* -Destination $vhostDest -Recurse -Force
 
 Write-Host "Reloading NGINX configuration..."
