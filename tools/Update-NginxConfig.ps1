@@ -10,7 +10,9 @@ Write-Host "Generating NGINX configuration:"
 Copy-Item -Path $vhostOutput\* -Destination $vhostDest -Recurse -Force
 
 Write-Host "Reloading NGINX configuration..."
+pushd $env:NGINX_HOME
 nginx -s reload
+popd
 $exitCode = $LASTEXITCODE
 Write-Host "NGINX reload exit code: $exitCode"
 
