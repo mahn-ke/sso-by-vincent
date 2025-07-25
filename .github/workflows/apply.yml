@@ -1,0 +1,21 @@
+name: Deploy with Docker Compose
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: hetzner2
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check Docker Compose version
+        run: | 
+          docker version
+          docker compose version
+  
+      - name: Run Docker Compose
+        run: docker compose up -d
