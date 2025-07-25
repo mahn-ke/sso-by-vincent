@@ -19,12 +19,12 @@ if ($exitCode -eq 0) {
     Remove-Item -Path $backupDir -Recurse -Force
     Write-Host "NGINX configuration updated successfully."
 } else {
-    # Failure: restore backup and remove backup
+    # Failure: restore backup contents and remove backup
     Write-Host "NGINX configuration update failed. Restoring backup..."
-    Remove-Item -Path $nginxConf -Recurse -Force
-    Copy-Item -Path $backupDir -Destination $nginxConf -Recurse -Force
+    Remove-Item -Path "$nginxConf\*" -Recurse -Force
+    Copy-Item -Path "$backupDir\*" -Destination $nginxConf -Recurse -Force
     Remove-Item -Path $backupDir -Recurse -Force
-    Write-Host "Backup restored. Please check the NGINX logs for details."
+    Write-Host "Backup contents restored. Please check the NGINX logs for details."
 }
 
 exit $exitCode
