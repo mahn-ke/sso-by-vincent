@@ -16,6 +16,14 @@ jobs:
         run: | 
           docker version
           docker compose version
+
+      - name: Generate NGINX configuration
+        run: ./tools/Generate-NginxConfig.ps1
+        shell: pwsh
+
+      - name: Try to apply NGINX configuration
+        run: ./tools/Update-NginxConfig.ps1
+        shell: pwsh
   
       - name: Run Docker Compose
         run: docker compose up -d
