@@ -14,10 +14,11 @@ echo "Setting up certificate renewal for $subdomain..."
 pushd $env:ACME_HOME
 $arguments = "--target manual --host $subdomain.by.vincent.mahn.ke --store pemfiles --pemfilespath $certsPath --validation filesystem --webroot $wellKnownPath --accepttos"
 echo "Starting in '$PWD': '$wacsPath $arguments'"
-Start-Process -FilePath $wacsPath -ArgumentList $arguments -Wait -NoNewWindow
+$process = Start-Process -FilePath $wacsPath -ArgumentList $arguments -Wait -NoNewWindow -PassThru
 popd
+echo "WACS process completed with exit code: $($process.ExitCode)"
 
-if ($LASTEXITCODE -ne 0) {
+if ($process.ExitCode -ne 0) {
     Write-Error "Certificate renewal failed for $subdomain."
 } else {
     Write-Host "Certificate successfully renewed for $subdomain in $certsPath."
