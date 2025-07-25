@@ -1,7 +1,4 @@
-param(
-    [Parameter(Mandatory = $true)]
-    [string]$subdomain
-)
+$subdomain = ((Split-Path -Leaf (Get-Location)) -split '-')[0]
 
 # Ensure directories exist
 $certsPath = Join-Path $env:CERT_HOME "certs"

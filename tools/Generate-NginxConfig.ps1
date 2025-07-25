@@ -88,11 +88,7 @@ function Check-EnvVars {
 
 Check-EnvVars
 
-# Get current directory name
-$dirName = Split-Path -Leaf (Get-Location)
-
-# Replace '-' with '.' and append '.mahn.ke'
-$fqdn = ($dirName -split '-')[0] + '.by.vincent.mahn.ke'
+$fqdn = ((Split-Path -Leaf (Get-Location)) -split '-')[0] + '.by.vincent.mahn.ke'
 
 $firstPort = Get-FirstHostPort -fqdn $fqdn
 
