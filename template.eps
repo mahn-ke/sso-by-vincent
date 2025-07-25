@@ -42,8 +42,8 @@ server {
     # HSTS (ngx_http_headers_module is required) (63072000 seconds)
     add_header Strict-Transport-Security "max-age=63072000" always;
         
-    ssl_certificate       <%= $CERT_HOME %>/well-known/<%= $fqdn %>-chain.pem;
-    ssl_certificate_key   <%= $CERT_HOME %>/well-known/<%= $fqdn %>-key.pem;
+    ssl_certificate       <%= $CERT_HOME %>/certs/<%= $fqdn %>-chain.pem;
+    ssl_certificate_key   <%= $CERT_HOME %>/certs/<%= $fqdn %>-key.pem;
 
     location / {
         proxy_set_header Host $host;
