@@ -3,13 +3,6 @@ param(
     [string]$subdomain
 )
 
-if (-not (Get-Command nginx -ErrorAction SilentlyContinue)) {
-    Write-Error "Ensure NGINX is installed and available in PATH."
-    exit
-}
-
-nginx -v
-
 $nginxConf = "$env:NGINX_HOME\conf"
 $backupDir = "$nginxConf-backup"
 $vhostOutput = "$(Get-Location)\output"

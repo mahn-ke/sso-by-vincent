@@ -12,10 +12,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Check Docker Compose version
+      - name: Check versions
         run: | 
           docker version
           docker compose version
+          nginx -v
 
       - name: Generate NGINX configuration
         run: ./tools/Generate-NginxConfig.ps1
