@@ -18,6 +18,10 @@ jobs:
           docker compose version
           nginx -v
 
+      - name: Generate certificates
+        run: ./tools/Generate-Certificate.ps1
+        shell: pwsh
+
       - name: Generate NGINX configuration
         run: ./tools/Generate-NginxConfig.ps1
         shell: pwsh
