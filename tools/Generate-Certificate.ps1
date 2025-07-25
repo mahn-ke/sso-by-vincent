@@ -12,7 +12,7 @@ $wacsPath = Join-Path $env:ACME_HOME "wacs.exe"
 # Run WACS to create certificate
 echo "Setting up certificate renewal for $subdomain..."
 pushd $env:ACME_HOME
-$arguments = "--target manual --host $subdomain --store pemfiles --pemfilespath $certsPath --validation filesystem --webroot $wellKnownPath --accepttos --noint"
+$arguments = "--target manual --host $subdomain.by.vincent.mahn.ke --store pemfiles --pemfilespath $certsPath --validation filesystem --webroot $wellKnownPath --accepttos"
 echo "Starting in '$PWD': '$wacsPath $arguments'"
 Start-Process -FilePath $wacsPath -ArgumentList $arguments -Wait -NoNewWindow
 popd
