@@ -14,7 +14,7 @@ services:
       - HTTP_ADDRESS_FORWARDING=true
       - KC_PROXY_HEADERS=xforwarded
       - KC_DB=postgres
-      - KC_DB_URL=jdbc:postgresql://${POSTGRES_USERNAME}-${POSTGRES_PASSWORD}:5432/keycloak
+      - KC_DB_URL=jdbc:postgresql://keycloak-postgres:5432/keycloak
       - KC_DB_USERNAME=${POSTGRES_USERNAME}
       - KC_DB_PASSWORD=${POSTGRES_PASSWORD}
     depends_on:
