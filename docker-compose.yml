@@ -27,6 +27,7 @@ services:
     container_name: keycloak_postgres
     image: postgres:17.5
     restart: always
+      - 5444:5432
     environment:
       - POSTGRES_DB=keycloak
       - POSTGRES_USER=${POSTGRES_USERNAME}
