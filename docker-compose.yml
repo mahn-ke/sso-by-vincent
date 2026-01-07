@@ -4,7 +4,7 @@ version: "3.7"
 services:
   keycloak:
     container_name: keycloak_app
-    image: quay.io/keycloak/keycloak:26.4 
+    image: quay.io/keycloak/keycloak:26.5 
     entrypoint: /opt/keycloak/bin/kc.sh start
     ports:
       - 127.0.0.1:8080:8080
