@@ -1,4 +1,1 @@
-{
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>mahn-ke/.github//renovate/default"]
-}
+{"$schema":"https://docs.renovatebot.com/renovate-schema.json","extends":["github\u003emahn-ke/.github//renovate/default"],"packageRules":[{"automerge":false,"description":"Keycloak upgrades can break Admin API access for every Terraform plan; review them","labels":[],"matchDatasources":["docker"],"matchPackageNames":["quay.io/keycloak/keycloak"],"pinDigests":true}]}
